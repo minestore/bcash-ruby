@@ -2,9 +2,7 @@ require 'bcash/version'
 
 module Bcash
   class << self
-    BASE_URL = "https://api.bcash.com.br/service/"
-
-    attr_accessor :email, :token, :secret
+    attr_accessor :email, :token, :key
 
     def configure
       yield self

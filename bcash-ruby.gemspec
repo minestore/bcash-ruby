@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Raphael Costa"]
   spec.email         = ["raphael@minestore.com.br"]
   spec.summary       = %q{Wrapper gem to handle BCash and account creation}
+  spec.description   = %q{Use this gem to create/search accounts or create transcations using Bcash API}
   spec.homepage      = "http://minestore.com.br"
   spec.license       = "GNU V2"
 
@@ -18,13 +19,13 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
   spec.required_ruby_version = '>= 1.9.3'
 
-  spec.add_dependency "httparty"
+  spec.add_dependency "httparty", '~> 0.13', '>= 0.13.0'
   spec.add_dependency 'multi_json', '~> 1.0'
   spec.add_dependency 'oauth', '~> 0.4'
 
-  spec.add_development_dependency "bundler", "~> 1.6"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "vcr"
-  spec.add_development_dependency "webmock"
-  spec.add_development_dependency "rspec", "~> 3.0.0"
+  spec.add_development_dependency 'bundler', '~> 1.6'
+  spec.add_development_dependency 'rake', '~> 10.3', '>= 10.3.2'
+  spec.add_development_dependency 'vcr', '~> 2.9', '>= 2.9.2'
+  spec.add_development_dependency 'webmock', '~> 1.18', '>= 1.18.0'
+  spec.add_development_dependency 'rspec', '~> 3.0.0', '>= 3.0.0'
 end

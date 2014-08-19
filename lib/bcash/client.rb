@@ -17,16 +17,20 @@ module Bcash
       @email = opts[:email]
     end
 
-    def create_account(data)
-      json_post 'createAccount'
+    def search_account(cpf)
+      json_request :get, 'searchAccount', body: { cpf: cpf }
     end
 
-    def json_post(method, options={}, &block)
-      options[:headers]["Authorization"] = authorization_key
-      self.class.post("/#{method}/json", options, block)
+    def create_account(data)
+      json_request :post, 'createAccount'
     end
 
     private
+
+    def json_request(verb, method, options={}, &block)
+      options[:headers]["Authorization"] = authorization_key
+      self.class.send(verb, "/#{method}/json", options, block)
+    end
 
     def authorization_key
       "Basic #{Base64.encode64("#{email}:#{token}")}"

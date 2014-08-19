@@ -1,4 +1,5 @@
 require 'vcr'
+require 'bcash'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
@@ -15,9 +16,9 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = :random
 
-  # Seed global randomization in this process using the `--seed` CLI option.
-  # Setting this allows you to use `--seed` to deterministically reproduce
-  # test failures related to randomization by passing the same `--seed` value
-  # as the one that triggered the failure.
-  Kernel.srand config.seed
+  config.before(:suite) do
+    # Bcash.configure do |c|
+    #   c.email = 'raphaelwc@gmail.com'
+    # end
+  end
 end

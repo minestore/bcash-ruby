@@ -55,4 +55,4 @@ of a major release, support for that Ruby version may be dropped.
 Copyright (c) 2014 Raphael Costa and minestore, Inc. See [LICENSE][] for
 details.
 
-[license]: LICENSE.md
+[license]: LICENSE

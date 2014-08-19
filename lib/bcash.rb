@@ -1,5 +1,4 @@
 require 'bcash/version'
-require 'oauth'
 
 module Bcash
   class << self

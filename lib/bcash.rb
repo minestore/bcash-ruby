@@ -2,7 +2,7 @@ require 'bcash/version'
 
 module Bcash
   class << self
-    BASE_URL = "http://api.bcash.com.br/service/"
+    BASE_URL = "https://api.bcash.com.br/service/"
 
     attr_accessor :email, :token, :secret
 

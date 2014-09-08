@@ -1,8 +1,10 @@
 require 'bcash/version'
+require 'active_model'
+require 'json'
 
 module Bcash
   class << self
-    attr_accessor :email, :token, :key
+    attr_accessor :email, :token, :key, :sales_channel
 
     def configure
       yield self

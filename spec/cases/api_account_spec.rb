@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'spec_helper'
 
 describe Bcash::Api::Accounts do
@@ -54,7 +55,7 @@ describe Bcash::Api::Accounts do
           response = client.search_account_by_cpf '07800000000'
 
           expect(response.code).to eq('202019')
-          expect(response.message).to eq('Falha na autenticação' )
+          expect(response.message).to eq('Falha na autenticação')
         end
       end
     end

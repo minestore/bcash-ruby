@@ -7,6 +7,9 @@ require 'bcash'
 
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
+  c.default_cassette_options = {
+    match_requests_on: [:method, :uri, :headers, :body]
+  }
   c.hook_into :webmock
 end
 

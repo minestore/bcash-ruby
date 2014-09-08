@@ -25,7 +25,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     # Bcash.configure do |c|
-    #   c.email = 'raphaelwc@gmail.com'
+    #   c.email = 'user@gmail.com'
     # end
   end
 end

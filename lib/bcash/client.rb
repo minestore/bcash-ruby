@@ -19,13 +19,5 @@ module Bcash
       @key = opts[:key]
       @email = opts[:email]
     end
-
-    def ensure_email_and_token_are_set!
-      if email.blank?
-        raise StandardError, 'Bcash email is not set'
-      elsif token.blank?
-        raise StandardError, 'Bcash token is not set'
-      end
-    end
   end
 end

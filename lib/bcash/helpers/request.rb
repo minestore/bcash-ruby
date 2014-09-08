@@ -11,6 +11,14 @@ module Bcash::Helpers::Request
     self.class.send(verb, "/#{method}/json", options)
   end
 
+  def ensure_email_and_token_are_set!
+    if email.blank?
+      raise StandardError, 'Bcash email is not set'
+    elsif token.blank?
+      raise StandardError, 'Bcash token is not set'
+    end
+  end
+
   def authorization_key
     "Basic #{Base64.strict_encode64("#{email}:#{token}")}"
   end

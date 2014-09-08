@@ -1,7 +1,8 @@
 module Bcash::Api
   module Accounts
-    def search_account(cpf)
-      json_request :get, 'searchAccount', body: { cpf: cpf }
+    def search_account_by_cpf(cpf)
+      response = json_request :post, 'searchAccount', { cpf: cpf }
+      Bcash::Api::AccountResponse.new(response)
     end
 
     def create_account(data)

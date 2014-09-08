@@ -10,6 +10,7 @@ module Bcash
     end
   end
 
-  autoload :Api,    "bcash/api"
-  autoload :Client, "bcash/client"
+  autoload :Api,     "bcash/api"
+  autoload :Client,  "bcash/client"
+  autoload :Helpers, "bcash/helpers"
 end

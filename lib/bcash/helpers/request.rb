@@ -1,18 +1,15 @@
 module Bcash::Helpers::Request
-  include HTTParty
-
-  base_uri "https://api.bcash.com.br/service"
-  default_timeout 20
-  format :json
-
   private
 
-  def json_request(verb, method, options={}, &block)
-    options[:headers]["Authorization"] = authorization_key
-    self.class.send(verb, "/#{method}/json", options, block)
+  def json_request(verb, method, data, options = {})
+    options.merge! headers: {
+      "Authorization" => authorization_key,
+    }, body: { data: data.to_json }
+
+    self.class.send(verb, "/#{method}/json", options)
   end
 
   def authorization_key
-    "Basic #{Base64.encode64("#{email}:#{token}")}"
+    "Basic #{Base64.strict_encode64("#{email}:#{token}")}"
   end
 end

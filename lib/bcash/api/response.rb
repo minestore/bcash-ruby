@@ -7,29 +7,36 @@ module Bcash::Api
     end
 
     def code
-      if success
-        body['code'].to_i
-      else
-        body.values.first.first['code']
-      end
+      success ? body['code'] : value_from_errors('code') 
     end
     
     def message
-      if success
-        body['message']
-      else
-        body.values.first.first['description']
-      end
+      success ? body['message'] : value_from_errors('description')
+    end
+
+    def errors
+      body['list']
     end
 
     def success?
       success
     end
 
+    private
+
     def parse_body(response)
       @body = CGI::unescape(response.body)
       @body = JSON::parse body
       @success = response.success?
     end
+
+    def value_from_errors(value)
+      if errors.size > 1
+        errors.collect {|e| e[value] }
+      else
+        errors[0][value]
+      end
+    end
+
   end
 end

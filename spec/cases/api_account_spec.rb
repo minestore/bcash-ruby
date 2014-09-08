@@ -11,7 +11,7 @@ describe Bcash::Api::Accounts do
         VCR.use_cassette('search_account_return_one') do
           cpf = '07411111111'
           response = client.search_account_by_cpf(cpf)
-          expect(response.code).to eq(1)
+          expect(response.code).to eq('1')
           expect(response.message).to eq('Foi encontrado 1 registro para o CPF ou email informado!')
           expect(response.cpf).to eq(cpf)
           expect(response.accounts.size).to eq(1)
@@ -25,7 +25,7 @@ describe Bcash::Api::Accounts do
         VCR.use_cassette('search_account_return_mutiple') do
           cpf = '07822222222'
           response = client.search_account_by_cpf(cpf)
-          expect(response.code).to eq(2)
+          expect(response.code).to eq('2')
           expect(response.message).to eq('Foram encontrados 2 registros para o CPF ou email informado!')
           expect(response.cpf).to eq(cpf)
           expect(response.accounts.size).to eq(2)
@@ -38,7 +38,7 @@ describe Bcash::Api::Accounts do
         VCR.use_cassette('search_account_return_not_found') do
           response = client.search_account_by_cpf '07800000000'
 
-          expect(response.code).to eq(3)
+          expect(response.code).to eq('3')
           expect(response.message).to eq('Nenhum registro foi encontrado para o CPF ou email informado!')
           expect(response.cpf).to eq('07800000000')
           expect(response.accounts).to be_empty
@@ -54,7 +54,7 @@ describe Bcash::Api::Accounts do
           response = client.search_account_by_cpf '07800000000'
 
           expect(response.code).to eq('202019')
-          expect(response.message).to eq('Falha na autenticação')
+          expect(response.message).to eq('Falha na autenticação' )
         end
       end
     end

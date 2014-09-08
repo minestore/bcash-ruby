@@ -1,26 +1,35 @@
 module Bcash::Api
   class Response
-    attr_accessor :body, :http_code
+    attr_accessor :body, :http_code, :success, :code, :message
 
     def initialize(response)
-      if response.success?
-        parse_body(response)
-      else
-        raise message
-      end
+      parse_body(response)
     end
 
     def code
-      body['code'].to_i
+      if success
+        body['code'].to_i
+      else
+        body.values.first.first['code']
+      end
     end
     
     def message
-      body['message']
+      if success
+        body['message']
+      else
+        body.values.first.first['description']
+      end
+    end
+
+    def success?
+      success
     end
 
     def parse_body(response)
       @body = CGI::unescape(response.body)
       @body = JSON::parse body
+      @success = response.success?
     end
   end
 end

@@ -37,10 +37,24 @@ describe Bcash::Api::Accounts do
       it 'must return not found message' do
         VCR.use_cassette('search_account_return_not_found') do
           response = client.search_account_by_cpf '07800000000'
+
           expect(response.code).to eq(3)
           expect(response.message).to eq('Nenhum registro foi encontrado para o CPF ou email informado!')
           expect(response.cpf).to eq('07800000000')
           expect(response.accounts).to be_empty
+        end
+      end
+    end
+
+    context 'when authentication fails' do
+      it 'must return error message' do
+        VCR.use_cassette('search_account_return_authentication_failed') do
+          token =  'AF3AISDkEF92ABCD820C37FEABC'
+          client = Bcash::Client.new(email: email, token: token) 
+          response = client.search_account_by_cpf '07800000000'
+
+          expect(response.code).to eq('202019')
+          expect(response.message).to eq('Falha na autenticação')
         end
       end
     end

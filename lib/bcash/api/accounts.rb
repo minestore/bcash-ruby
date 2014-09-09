@@ -6,8 +6,14 @@ module Bcash::Api
     end
 
     def create_account(data)
-      response = json_request :post, 'createAccount', data
-      Bcash::Api::AccountResponse.new(response)
+      data = Bcash::Api::AccountCreationRequest.new(data)
+
+      if data.valid?
+        response = json_request :post, 'createAccount', data
+        Bcash::Api::AccountResponse.new(response)
+      else
+        raise StandardError, 'not valid'
+      end
     end
   end
 end

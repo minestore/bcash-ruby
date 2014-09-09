@@ -3,10 +3,10 @@ require 'spec_helper'
 
 describe Bcash::Api::Accounts do
   let(:email) { 'contato@minestore.com.br' }
-  let(:token) { 'AF3AISDkEF92ABCD820C37FEABCE1' } 
+  let(:token) { 'AF3AISDkEF92ABCD820C37FEABCE1' }
   let!(:client){ Bcash::Client.new(email: email, token: token) }
 
-  describe 'search_account' do
+  describe 'search_account_by_cpf' do
     context 'when match one customer' do
       it 'should be able to retrieve customer info' do
         VCR.use_cassette('search_account_return_one') do
@@ -49,15 +49,52 @@ describe Bcash::Api::Accounts do
 
     context 'when authentication fails' do
       it 'must return error message' do
-        VCR.use_cassette('search_account_return_authentication_failed') do
-          token =  'AF3AISDkEF92ABCD820C37FEABC'
-          client = Bcash::Client.new(email: email, token: token) 
-          response = client.search_account_by_cpf '07800000000'
+        token =  'AF3AISDkEF92ABCD820C37FEABC'
+        client = Bcash::Client.new(email: email, token: token)
+        response = nil
 
-          expect(response.code).to eq('202019')
-          expect(response.message).to eq('Falha na autenticação')
+        VCR.use_cassette('search_account_return_authentication_failed') do
+          response = client.search_account_by_cpf '07800000000'
+        end
+
+        expect(response.code).to eq('202019')
+        expect(response.message).to eq('Falha na autenticação')
+      end
+    end
+  end
+
+  describe '#create_account' do
+    context 'passing minimun of necessary information' do
+      it 'must return success message' do
+        data = {
+          owner: {
+            email: "jose@vendedor.net",
+            gender: "M",
+            name: "José o Vendedor",
+            cpf: "43677708699",
+            birth_date: "12/12/1912"
+          },
+          address: {
+            address: "Rua Agostinho",
+            zip_code: "81560-040",
+            number: "1000",
+            neighborhood: "Centro",
+            complement: "Casa",
+            city: "Curitiba",
+            state: "PR"
+          },
+          contact: {
+            phone_number: "41-3333-3333"
+          }
+        }
+
+
+        VCR.use_cassette('create_account_using_minimal_data') do
+          response = client.create_account(data)
+          expect(response.message).to eq('Conta criada com sucesso.')
         end
       end
     end
   end
+
 end

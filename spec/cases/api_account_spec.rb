@@ -91,6 +91,7 @@ describe Bcash::Api::Accounts do
 
         VCR.use_cassette('create_account_using_minimal_data') do
           response = client.create_account(data)
+          expect(response.http_code).to eq(200)
           expect(response.message).to eq('Conta criada com sucesso.')
         end
       end

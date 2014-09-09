@@ -3,6 +3,7 @@ module Bcash::Api
     attr_accessor :body, :http_code, :success, :code, :message
 
     def initialize(response)
+      @http_code = response.code
       parse_body(response)
     end
 

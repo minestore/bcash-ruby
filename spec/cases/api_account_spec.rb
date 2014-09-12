@@ -64,36 +64,51 @@ describe Bcash::Api::Accounts do
   end
 
   describe '#create_account' do
+    let(:data) do
+      {
+        owner: {
+          email: "jose@vendedor.net",
+          gender: "M",
+          name: "José o Vendedor",
+          cpf: "43677708699",
+          birth_date: "12/12/1912"
+        },
+        address: {
+          address: "Rua Agostinho",
+          zip_code: "81560-040",
+          number: "1000",
+          neighborhood: "Centro",
+          complement: "Casa",
+          city: "Curitiba",
+          state: "PR"
+        },
+        contact: {
+          phone_number: "41-3333-3333"
+        }
+      }
+    end
+
     context 'passing minimun of necessary information' do
       it 'must return success message' do
-        data = {
-          owner: {
-            email: "jose@vendedor.net",
-            gender: "M",
-            name: "José o Vendedor",
-            cpf: "43677708699",
-            birth_date: "12/12/1912"
-          },
-          address: {
-            address: "Rua Agostinho",
-            zip_code: "81560-040",
-            number: "1000",
-            neighborhood: "Centro",
-            complement: "Casa",
-            city: "Curitiba",
-            state: "PR"
-          },
-          contact: {
-            phone_number: "41-3333-3333"
-          }
-        }
-
-
         VCR.use_cassette('create_account_using_minimal_data') do
           response = client.create_account(data)
+          expect(response).to be_success
           expect(response.http_code).to eq(200)
           expect(response.message).to eq('Conta criada com sucesso.')
         end
+      end
+    end
+
+    context 'when all required fields are missing' do
+      it 'must raise error' do
+        expect { client.create_account({}) }.to raise_error(Bcash::InvalidAccount)
+      end
+    end
+
+    context 'when cpf is missing' do
+      it 'must raise error' do
+        data[:owner].delete(:cpf)
+        expect { client.create_account(data) }.to raise_error(Bcash::InvalidAccount)
       end
     end
   end

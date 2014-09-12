@@ -1,4 +1,5 @@
 require 'bcash/version'
+require 'bcash/exceptions'
 require 'active_model'
 require 'json'
 

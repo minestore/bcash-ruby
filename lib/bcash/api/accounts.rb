@@ -12,7 +12,7 @@ module Bcash::Api
         response = json_request :post, 'createAccount', data
         Bcash::Api::AccountResponse.new(response)
       else
-        raise Bcash::InvalidAccount
+        Bcash::Api::AccountNotValidResponse.new(data)
       end
     end
   end

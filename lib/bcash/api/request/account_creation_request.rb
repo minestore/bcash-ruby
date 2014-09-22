@@ -21,6 +21,11 @@ module Bcash::Api
       legal_person.present? ? legal_person.valid? : true
     end
 
+    def errors_full_messages
+      errors.full_messages + address.errors.full_messages + owner.errors.full_messages +
+        contact.errors.full_messages
+    end
+
     def attributes
       { 'owner' => owner, 'legalPerson' => legal_person, 'address' => address, 'contact' => contact, 'url' => url, 'transactionMode' => transaction_mode }
     end

@@ -101,14 +101,18 @@ describe Bcash::Api::Accounts do
 
     context 'when all required fields are missing' do
       it 'must raise error' do
-        expect { client.create_account({}) }.to raise_error(Bcash::InvalidAccount)
+        response = client.create_account({})
+        expect(response).to_not be_success
+        expect(response.message).to eq(["Email can't be blank", "Gender can't be blank", "Name can't be blank", "Cpf can't be blank"])
       end
     end
 
     context 'when cpf is missing' do
       it 'must raise error' do
         data[:owner].delete(:cpf)
-        expect { client.create_account(data) }.to raise_error(Bcash::InvalidAccount)
+        response = client.create_account(data)
+        expect(response).to_not be_success
+        expect(response.message).to eq(["Cpf can't be blank"])
       end
     end
   end

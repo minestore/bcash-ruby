@@ -2,6 +2,7 @@ module Bcash::Api
   autoload :Accounts, 'bcash/api/accounts'
   autoload :Response, 'bcash/api/response'
   autoload :AccountResponse, 'bcash/api/account_response'
+  autoload :AccountNotValidResponse, 'bcash/api/account_not_valid_response'
 
   autoload :BaseRequest, 'bcash/api/request/base_request'
   autoload :AddressRequest, 'bcash/api/request/address_request'

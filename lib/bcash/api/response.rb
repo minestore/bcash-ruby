@@ -24,6 +24,10 @@ module Bcash::Api
       success
     end
 
+    def messages
+      message
+    end
+
     private
 
     def parse_body(response)
@@ -33,11 +37,7 @@ module Bcash::Api
     end
 
     def value_from_errors(value)
-      if errors.size > 1
-        errors.collect {|e| e[value] }
-      else
-        errors[0][value]
-      end
+      errors.collect {|e| e[value] }
     end
 
   end

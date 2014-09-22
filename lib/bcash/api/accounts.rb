@@ -10,7 +10,7 @@ module Bcash::Api
 
       if data.valid?
         response = json_request :post, 'createAccount', data
-        Bcash::Api::AccountResponse.new(response)
+        Bcash::Api::CreateAccountResponse.new(response)
       else
         Bcash::Api::AccountNotValidResponse.new(data)
       end

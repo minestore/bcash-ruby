@@ -57,8 +57,8 @@ describe Bcash::Api::Accounts do
           response = client.search_account_by_cpf '07800000000'
         end
 
-        expect(response.code).to eq('202019')
-        expect(response.message).to eq('Falha na autenticação')
+        expect(response.code).to eq(['202019'])
+        expect(response.message).to eq(['Falha na autenticação'])
       end
     end
   end

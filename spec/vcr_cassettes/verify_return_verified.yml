@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.bcash.com.br/checkout/verify/
+    body:
+      encoding: UTF-8
+      string: transacao=2833&status=Transa%C3%A7%C3%A3o%20em%20Andamento&cod_status=0&valor_original=2145.23&valor_loja=2083.23&token=1211CF51917E074BC3784592C71FC
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Content-Type:
+      - text/html
+      Date:
+      - Thu, 02 Oct 2014 21:43:09 GMT
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Apache
+      Set-Cookie:
+      - PHPSESSID=p70g6rasqksjhak3lvah8ji173; path=/; secure; HttpOnly
+      - ci_session_verify=v0obUVVfgPV6frEHCx6LAn%2B28tBNWVqKX0sHNXPQs9QvxQNVE0lBsqaCU%2FljFaJDnZVTJbJjZTon0i87rxI9vW%2BHRyLh7XT0Typbeg7fNRTwYj4gKmdcSl30ikC6TzaSfOrxNhIU93h4tskPHtuAijavr9JBW4k6cybdF3r5lhhFoovyIBn6QYyBQTe0Qv6Z99yh3asdne%2Fib1gccGVDtdN2c1YhYuxGSBlWrW5Jenfz2E3HAKLYBVPFbLyylkNFgTrzwsYEkrNk7%2F1Bo27X0AHhawQecz454iRgh7GL13SBO9kgCxXxQ4nDxKd6KDhugD%2BgWqWlrnvaSr%2FvbmGajoxis7CJKw4xvmiamnExz4AptEHmrgqVblwoGhHonNj397z8C%2FJhVyC6M4Xafs7z8LfEp00JaurkunvnPAPOq30%2FtJMvuT5uxYNuSOmFaCP6hGzcVDLeEngHNfa7c0EAcjJhbuu2hmpyKIwakSZ7AKOgns0is2SVZ3RuqjetEeFhKrv0TzAKww7tgFDB5UkJj4CeRwLPp7baONfPRndGWYk%3D;
+        expires=Thu, 02-Oct-2014 23:43:09 GMT; path=/; secure; httponly
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '10'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: VERIFICADO
+    http_version: 
+  recorded_at: Thu, 02 Oct 2014 21:43:10 GMT
+recorded_with: VCR 2.9.2

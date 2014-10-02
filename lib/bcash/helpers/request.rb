@@ -11,6 +11,16 @@ module Bcash::Helpers::Request
     self.class.send(verb, "/#{method}/json", options)
   end
 
+  def assert_valid_keys(hash, *valid_keys)
+    valid_keys_text = "Valid keys are: #{valid_keys.join(", ")}"
+    if hash.empty?
+      raise(ArgumentError, "Keys are required. #{valid_keys_text}")
+    else
+      unknown_keys = hash.keys - [valid_keys].flatten
+      raise(ArgumentError, "Unknown key(s): #{unknown_keys.join(", ")}. #{valid_keys_text}") unless unknown_keys.empty?
+    end
+  end
+
   def ensure_email_and_token_are_set!
     if email.blank?
       raise StandardError, 'Bcash email is not set'

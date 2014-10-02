@@ -33,7 +33,7 @@ end
 
 ## Usage Examples
 
-# Verify Bcash return
+### Verify Bcash return
 
 ```ruby
   data = {

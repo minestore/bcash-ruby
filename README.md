@@ -13,7 +13,6 @@ transaction methods.
 ## Installation
     gem install bcash-ruby
 
-
 ## Resources
 * [View Source on GitHub][code]
 * [Report Issues on GitHub][issues]
@@ -23,7 +22,33 @@ transaction methods.
 [issues]: https://github.com/minestore/bcash-ruby/issues
 [wiki]: https://wiki.github.com/minestore/bcash-ruby
 
+## Configuration
+
+```ruby
+Bcash.configure do |b|
+  b.email = Rails.application.secrets.bcash["email"]
+  b.token = Rails.application.secrets.bcash["token"]
+end
+```
+
 ## Usage Examples
+
+# Verify Bcash return
+
+```ruby
+  data = {
+    transacao: '2833',
+    status: 'Transação em Andamento',
+    cod_status: '0',
+    valor_original: '2145.23',
+    valor_loja: '2083.23',
+    token:  '1211CF51917E074BC3784592C71FC'
+  }
+
+  client = Bcash::Client.new
+  response = client.verify_return(data)
+  response.verified? #true
+```
 
 ## Supported Ruby Versions
 This library aims to support and is [tested against][travis] the following Ruby

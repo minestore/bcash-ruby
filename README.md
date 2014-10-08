@@ -33,6 +33,18 @@ end
 
 ## Usage Examples
 
+### Search accounts by CPF
+
+```ruby
+  client = Bcash::Client.new
+  response = client.search_account_by_cpf('07411111111')
+  response.code # 1
+  response.cpf # 074111111111
+  response.message # Foi encontrado 1 registro para o CPF ou email informado!
+  response.accounts.size # 1
+  response.accounts.first # { "mail" => 'pessoa@hotmail.com', "token" => 'kx4F3mkZDlGUejQNKWdnP5Ttmk', "idClient" => '205' }
+```
+
 ### Verify Bcash return
 
 ```ruby

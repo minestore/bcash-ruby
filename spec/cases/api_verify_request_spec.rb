@@ -14,12 +14,13 @@ describe Bcash::Api::VerifyReturn do
     }
   }
 
-  describe 'verify_return' do
+  describe '#verify_return' do
     context 'when data is valid' do
       it 'must return VERIFICADO from response and return verified is true' do
         VCR.use_cassette('verify_return_verified') do
           response = client.verify_return(data)
           expect(response).to be_verified
+          expect(response.message).to eq('VERIFICADO')
         end
       end
     end
@@ -34,6 +35,5 @@ describe Bcash::Api::VerifyReturn do
       end
     end
   end
-
 end
 

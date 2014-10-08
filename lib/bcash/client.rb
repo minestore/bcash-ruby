@@ -7,6 +7,7 @@ module Bcash
     include Helpers::Request
     include Api::Accounts
     include Api::VerifyReturn
+    include Api::FindTransaction
 
     base_uri "https://api.bcash.com.br/service"
     default_timeout 20

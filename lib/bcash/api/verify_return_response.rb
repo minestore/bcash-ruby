@@ -1,7 +1,7 @@
 module Bcash::Api
   class VerifyReturnResponse < Response
     def verified?
-      body == 'VERIFICADO'
+      message == 'VERIFICADO'
     end
 
     def message

@@ -6,9 +6,9 @@ module Bcash::Helpers::Request
 
     options.merge! headers: {
       "Authorization" => authorization_key,
-    }, body: { data: data.to_json }
+    }, body: data
 
-    self.class.send(verb, "/#{method}/json", options)
+    self.class.send(verb, method, options)
   end
 
   def assert_valid_keys(hash, *valid_keys)

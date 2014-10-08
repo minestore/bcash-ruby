@@ -75,6 +75,26 @@ end
   response.message # Conta criada com sucesso
 ```
 
+### Find Transaction
+
+```ruby
+  client = Bcash::Client.new
+
+  # Find by order id
+  response = client.find_by_order_id('1001')
+  response.success? # true
+  response.transaction
+    # { "id_transacao"=>"123456",
+    # "data_transacao"=>"07/10/2014",
+    # "data_credito"=>"22/10/2014",
+    # "valor_original"=>"5.00", ...}
+
+  # Find by transaction_id
+  response = client.find_by_transaction_id('2343856')
+  response.success? # false
+  response.message # Pedido não localizado
+```
+
 ### Verify Bcash return
 
 ```ruby

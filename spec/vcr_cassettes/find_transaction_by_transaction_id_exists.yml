@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://contato%40minestore.com.br:AF3AISDkEF92ABCD820C37FEABCE1@www.pagamentodigital.com.br/transacao/consulta
+    body:
+      encoding: UTF-8
+      string: id_transacao=1001&tipo_retorno=2
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/html
+      Date:
+      - Wed, 08 Oct 2014 04:08:08 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_session_transacao=Ua%2BwkSQocWxuJnG4MNAcpiXAWXiQQ649UNCKtsKn0dZ6KArkQTuzAFbuV5tpHN4PGjZZ7lbcLZeGLHilwbAOWFSkpUWvGTz7BcFCVSPzBpPSOAIRh8kuKvxOMv98VAcKJXEsr2BhUa7YUhxxOqPgrnOvNzA82v0YqUxyV%2FSgwtf0K1p9S1G4WTGaD8AjnuE5nLgNQCFSNQmdGfKVcN9d8Jv5XLhj0P7V%2BuczKmdK9vAPm2n0sReR%2BG7l3GHPB68df5EEZNukQUAGZWWemAQYsxYUoy34rynNL%2FGd6flNCyr%2F%2FKHadjYdsUUzyL%2BeR%2BX01BTMzsgDlew%2BmdkNhR7Cu1hRQChznDcbYhdG7fAzir3Ih6sDA5fEgSl1LPHI2qAxCJolAVL44QboO4BXh6PoX%2BEHjuJrMYX0sJ81QSvR4INn58XT29%2F922hoCYWXHS5%2B8tgQafUPqu4A7GoPd7YAOMjLvuIVuZC02Oxcu%2B6ec9BpALXtokAgnOF8UKMNNNuFd1qzO0WtlthAMNAcP9sameHVbYKUdLlsTsU%3D;
+        expires=Wed, 08-Oct-2014 06:08:08 GMT; path=/; secure; httponly
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '1187'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"transacao":{"id_transacao":"123456","data_transacao":"07\/10\/2014","data_credito":"22\/10\/2014","valor_original":"5.00","valor_loja":"4.77","valor_total":"5.00","desconto_programado":"0.00","desconto":"13.70","acrescimo":"0.00","cod_meio_pagamento":"1","meio_pagamento":"Visa","parcelas":"1","cod_status":"3","status":"Aprovada","data_alteracao_status":"07\/10\/2014
+        19:16:18","cliente_razao_social":"","cliente_nome_fantasia":"","cliente_nome":"José
+        Comprador","cliente_email":"jose@hotmail.com","cliente_rg":"237382937","cliente_data_emissao_rg":"01\/06\/2007","cliente_orgao_emissor_rg":"SSP","cliente_estado_emissor_rg":"PR","cliente_cnpj":"","cliente_cpf":"07875183952","cliente_sexo":"M","cliente_data_nascimento":"12\/12\/1912","cliente_telefone":"4133333333","cliente_endereco":"Rua
+        Agostinho Carlos, 1001","cliente_complemento":"","cliente_bairro":"","cliente_cidade":"Curitiba","cliente_estado":"PR","cliente_cep":"80002040","frete":"13.70","tipo_frete":"PAC","id_pedido":"1001","free":"","email_vendedor":"jose@vendedor.com","pedidos":[{"codigo_produto":"","nome_produto":"Teste","qtde":"1","valor_total":"5.00","extra":""}]}}'
+    http_version: 
+  recorded_at: Wed, 08 Oct 2014 04:08:08 GMT
+recorded_with: VCR 2.9.2

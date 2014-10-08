@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://contato%40minestore.com.br:AF3AISDkEF92ABCD820C37FEABCE1@www.pagamentodigital.com.br/transacao/consulta
+    body:
+      encoding: UTF-8
+      string: id_transacao=12345&tipo_retorno=2
+    headers: {}
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - text/json; charset=UTF-8
+      Date:
+      - Wed, 08 Oct 2014 04:46:25 GMT
+      P3p:
+      - CP="CAO PSA OUR"
+      Server:
+      - Apache
+      Set-Cookie:
+      - ci_session_transacao=CDPDntFmCsWwljYclhOr4w3qoLd7PymJcevfmLwTGtB69Pdtt%2BQnOzP61K%2BHEylYVJk1K7AfZW4cghdWkUokmZaH6%2BfqvkUmgT12C0KbWwJeQko1We%2FBRslGyUepDbrH8W3fPoeb1B5jeBm4grwudP9yQBqCx52ovAGrCQtNa63IJ3f9yJbRnHyEsLpHF9HHzNM1EvW6MnHfPXgeuvESz%2FwFdsOQLXeEeEDkfqmM8SX37wYrLpWFalbCpGDPlrJe6zbtJV%2ByJlJIOBHxTCzA%2BoQoBZquVP8wDlY%2FOmJwner6XnhCmV35kssDZ1vcYxa8Ddn7IdJUTuVGRup0X9ijuhdFZCzgL7nM8CroGywfx52cMc7oU7Ex0P7nYlbb8unED2C4ct%2BqmI4rBFjVjmvOgwfBGrDZVxsrUR2UCZrQ7FT8KD0hmh6TxnUZIT0vSxIoPcfY%2F1s4%2FrOMgGeCx8MPtmNJhILJATjkRjfnoq4Roc7NXqdFhN2JGXeyHNgaM0YRCWbrt%2F4BaB3M3HiJiAByCh9Rdd6XVcu3Io%2BDDHPxOOQ%3D;
+        expires=Wed, 08-Oct-2014 06:46:25 GMT; path=/; secure; httponly
+      Content-Length:
+      - '66'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvIjp7ImNvZGlnbyI6IjIwMTUwMDMiLCJkZXNjcmljYW8iOiJQZWRp
+        ZG8gbsOjbyBsb2NhbGl6YWRvIn19
+    http_version: 
+  recorded_at: Wed, 08 Oct 2014 04:46:25 GMT
+recorded_with: VCR 2.9.2

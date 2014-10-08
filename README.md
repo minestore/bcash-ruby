@@ -49,32 +49,30 @@ end
 ```ruby
   data = {
     owner: {
-          email: "jose@vendedor.net",
-          gender: "M",
-          name: "José o Vendedor",
-          cpf: "43677708699",
-          birth_date: "12/12/1912"
-        },
-        address: {
-          address: "Rua Agostinho",
-          zip_code: "81560-040",
-          number: "1000",
-          neighborhood: "Centro",
-          complement: "Casa",
-          city: "Curitiba",
-          state: "PR"
-        },
-        contact: {
-          phone_number: "41-3333-3333"
-        }
-      }
+      email: "jose@vendedor.net",
+      gender: "M",
+      name: "José o Vendedor",
+      cpf: "43677708699",
+      birth_date: "12/12/1912"
+    },
+    address: {
+      address: "Rua Agostinho",
+      zip_code: "81560-040",
+      number: "1000",
+      neighborhood: "Centro",
+      complement: "Casa",
+      city: "Curitiba",
+      state: "PR"
+    },
+    contact: {
+      phone_number: "41-3333-3333"
     }
+  }
 
-    client = Bcash::Client.new
-    response = cliente.create_account(data)
-    response.success? # true
-    response.message # Conta criada com sucesso
-
+  client = Bcash::Client.new
+  response = client.create_account(data)
+  response.success? # true
+  response.message # Conta criada com sucesso
 ```
 
 ### Verify Bcash return

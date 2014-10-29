@@ -16,7 +16,7 @@ describe Bcash::Api::Accounts do
           expect(response.message).to eq('Foi encontrado 1 registro para o CPF ou email informado!')
           expect(response.cpf).to eq(cpf)
           expect(response.accounts.size).to eq(1)
-          expect(response.accounts.first).to eq({"mail" => 'pessoa@hotmail.com', "token" => 'kx4F3mkZDlGUejQNKWdnP5Ttmk', "idClient" => '205' })
+          expect(response.accounts.first).to eq({"mail" => 'pessoa@hotmail.com', "token" => 'kx4F3mkZDlGUejQNKWdnP5Ttmk', "idClient" => '205', 'keyAccess' => '1A518323ABED913AC', 'accountType' => 'pessoal' })
         end
       end
     end

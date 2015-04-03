@@ -2,6 +2,7 @@ module Bcash::Api
   autoload :Accounts, 'bcash/api/accounts'
   autoload :VerifyReturn, 'bcash/api/verify_return'
   autoload :FindTransaction, 'bcash/api/find_transaction'
+
   autoload :Response, 'bcash/api/response'
   autoload :AccountResponse, 'bcash/api/account_response'
   autoload :CreateAccountResponse, 'bcash/api/create_account_response'

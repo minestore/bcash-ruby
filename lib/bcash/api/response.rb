@@ -9,9 +9,9 @@ module Bcash::Api
     end
 
     def code
-      success ? body['code'] : value_from_errors('code') 
+      success ? body['code'] : value_from_errors('code')
     end
-    
+
     def message
       success ? body['message'] : value_from_errors('description')
     end
@@ -32,7 +32,7 @@ module Bcash::Api
 
     def parse_body(response)
       @body = CGI::unescape(response.body)
-      @body = JSON::parse body
+      @body = MultiJson.load body
       @success = response.success?
     end
 
